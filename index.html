@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LexiFind — Smart Autocomplete</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="hero"><span class="tag">DSA MINI PROJECT</span><h1>Find the word you <em>meant.</em></h1><p>Prefix search powered by a Trie. Typo correction powered by edit-distance dynamic programming.</p></section>
+    <section class="search-card">
+      <label for="query">Search the dictionary</label>
+      <div class="search-row"><span>⌕</span><input id="query" autocomplete="off" autofocus placeholder="Try ‘algoritm’ or ‘progra’"><button id="clear">Clear</button></div>
+      <div id="status">Start typing to explore the dictionary.</div><ul id="results"></ul>
+    </section>
+    <section class="stats"><div><strong id="words">0</strong><span>words indexed</span></div><div><strong>O(m)</strong><span>prefix lookup</span></div><div><strong>DP</strong><span>typo correction</span></div></section>
+    <section class="explain"><h2>How it works</h2><div class="steps"><article><b>01</b><h3>Build the Trie</h3><p>Every dictionary word is inserted character by character; terminal nodes retain a frequency score.</p></article><article><b>02</b><h3>Search prefixes</h3><p>The query walks one path of length m, then DFS collects and ranks completions below that node.</p></article><article><b>03</b><h3>Repair typos</h3><p>If no prefix matches, Levenshtein DP measures insertions, deletions and substitutions to suggest nearby words.</p></article></div></section>
+  </main><script type="module" src="app.js"></script>
+</body></html>
